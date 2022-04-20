@@ -24,7 +24,6 @@ body {
 }
 .header1__button1 {
   justify-self: center;
-  /* cursor: pointer; For further development*/
   border: none;
   outline: none;
   background-color: transparent;
@@ -36,7 +35,6 @@ body {
 
 .header1__button2 {
   justify-self: center;
-  /* cursor: pointer; For further development */
   border: none;
   outline: none;
   background-color: transparent;
