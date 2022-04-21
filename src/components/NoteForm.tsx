@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../hooks/useTypeSelector";
 import { noteCreate, ShowActive } from "../redux/actions";
@@ -27,34 +27,37 @@ const NoteForm: React.FC = () => {
     const date = new Date();
     return date.toLocaleString("en-US", options);
   };
-  let newNote: noteIn = {
-    id: "",
-    name: "",
-    created: "",
+  const [newNote, setNewNote] = useState<noteIn>({
+    active: true,
     category: 1,
     content: "",
-    active: true,
-  };
+    created: "",
+    id: "",
+    name: "",
+  });
   const { categories } = useTypedSelector((state) => state.categories);
   const changeHandlerName = (e: React.ChangeEvent<HTMLInputElement>) =>
-    (newNote = { ...newNote, name: e.target.value });
+    {setError(null)
+    setNewNote({ ...newNote, name: e.target.value })};
   const changeHandlerCategory = (e: React.ChangeEvent<HTMLSelectElement>) =>
-    (newNote = { ...newNote, category: +e.target.value });
+    setNewNote({ ...newNote, category: +e.target.value });
   const changeHandlerContent = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
-    (newNote = { ...newNote, content: e.target.value });
+    setNewNote({ ...newNote, content: e.target.value });
   const changeHandlerActive = (e: React.ChangeEvent<HTMLInputElement>) =>
-    (newNote = { ...newNote, active: e.target.checked });
+    setNewNote({ ...newNote, active: e.target.checked });
   const changeHandlerCancel = () => {
     goHome();
   };
+  const [error, setError] = useState<null | string>(null)
   const changeHandlerCreate = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    newNote = { ...newNote, created: getDateCreated(), id: uniqid() };
+    setNewNote({ ...newNote, created: getDateCreated(), id: uniqid()});
+    
     const have = notes.find((note) => note.name === newNote.name);
     if (newNote.name === "") {
-      alert("Enter note name");
+      setError("Enter note name");
     } else if (have) {
-      alert("Enter another name");
+      setError("Enter another name");
     } else {
       dispatch(noteCreate(newNote));
       dispatch(ShowActive());
@@ -67,6 +70,7 @@ const NoteForm: React.FC = () => {
         <h1 className="form-note__title">Create Note</h1>
         <div className="form-note__label1">Name:</div>
         <input className="form-note__name" onChange={changeHandlerName} />
+        <p className='form-error'>{error}</p>
         <div className="form-note__label2">Category:</div>
         <select className="form-note__select" onChange={changeHandlerCategory}>
           {categories.map((category) => (

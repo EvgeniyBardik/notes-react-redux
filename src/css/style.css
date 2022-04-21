@@ -198,6 +198,10 @@ body {
   background-color: rgb(238, 235, 248);
 }
 
+.form-error {
+  color:red;
+}
+
 .form-note__title {
   text-align: center;
   font-size: 27px;

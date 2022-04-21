@@ -30,10 +30,10 @@ const NoteFormEdit: React.FC<NoteItemProps> = ({ note }) => {
   const goHome = () => {
     navigate("/");
   };
-
   const { categories } = useTypedSelector((state) => state.categories);
-  const changeHandlerName = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setNoteEdit({ ...noteEdit, name: e.target.value });
+  const changeHandlerName = (e: React.ChangeEvent<HTMLInputElement>) => 
+    {setError(null)
+    setNoteEdit({ ...noteEdit, name: e.target.value })};
   const changeHandlerCategory = (e: React.ChangeEvent<HTMLSelectElement>) =>
     setNoteEdit({ ...noteEdit, category: +e.target.value });
   const changeHandlerContent = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
@@ -43,11 +43,16 @@ const NoteFormEdit: React.FC<NoteItemProps> = ({ note }) => {
   const changeHandlerCancel = () => {
     goHome();
   };
+  const { notes } = useTypedSelector((state) => state.notes);
+  const [error, setError] = useState<null | string>(null)
   const changeHandlerCreate = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const haveSameName = notes.find((note) => note.name === noteEdit.name);
     if (noteEdit.name === "") {
-      alert("Enter note name");
-    } else {
+      setError("Enter note name");
+    } else if (haveSameName && haveSameName.id !== note.id) {
+      setError("Enter another name"); }
+    else {
       dispatch(noteUpdate(noteEdit));
       dispatch(ShowActive());
       goHome();
@@ -63,6 +68,7 @@ const NoteFormEdit: React.FC<NoteItemProps> = ({ note }) => {
           value={noteEdit.name}
           onChange={changeHandlerName}
         />
+        <p className='form-error'>{error}</p>
         <div className="form-note__label2">Category:</div>
         <select
           className="form-note__select"
