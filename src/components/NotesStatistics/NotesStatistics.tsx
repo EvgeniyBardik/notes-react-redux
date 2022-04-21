@@ -1,4 +1,5 @@
-import { useTypedSelector } from "../hooks/useTypeSelector";
+import './NotesStatistics.css'
+import { useTypedSelector } from "../../hooks/useTypeSelector";
 const NotesStaistics = () => {
     const { notes } = useTypedSelector((state) => state.notes);
     const { categories } = useTypedSelector((state) => state.categories);    

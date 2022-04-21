@@ -1,5 +1,6 @@
+import './NotesList.css'
 import React from "react";
-import { useTypedSelector } from "../hooks/useTypeSelector";
+import { useTypedSelector } from "../../hooks/useTypeSelector";
 import Note from "./Note";
 import { Link } from "react-router-dom";
 

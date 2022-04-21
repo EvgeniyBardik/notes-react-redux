@@ -1,9 +1,10 @@
-import NotesList from './NotesList'; 
-import NoteForm from './NoteForm';
+import './Main.css'
+import NotesList from '../NotesList/NotesList'; 
+import NoteFormCreate from '../NoteForms/NoteFormCreate';
 import { Routes, Route } from 'react-router-dom';
-import NotesStatisticsHeader from "./NotesStatisticsHeader";
-import NotesStaistics from "./NotesStatistics"
-import NoteEditRouter from './NoteEditRouter';
+import NotesStatisticsHeader from "../NotesStatistics/NotesStatisticsHeader";
+import NotesStaistics from "../NotesStatistics/NotesStatistics"
+import NoteEditRouter from '../NoteForms/NoteEditRouter';
 const Main: React.FC = () => {
     return (
         <>
@@ -20,7 +21,7 @@ const Main: React.FC = () => {
         </div>
         <Routes>
         <Route path="" element={<NotesList />} />
-        <Route path="add" element={<NoteForm />} />
+        <Route path="add" element={<NoteFormCreate />} />
         <Route path="edit" element={<NoteEditRouter />} >
         <Route path=":id" element={<NoteEditRouter />} />
         </Route>

@@ -1,0 +1,96 @@
+.button-create {
+  width: 7vw;
+  align-self: flex-end;
+  font-size: 1vw;
+}
+.button-create:hover {
+  cursor: pointer;
+}
+
+.item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 7% 20% 15% 15% 15% 16% 4% 4% 4%;
+  margin: 0 auto 1vw auto;
+  align-items: center;
+  background-color: rgb(238, 235, 248);
+  min-height: 4vw;
+  padding: 0.2vw 0;
+}
+
+.item__ico {
+  justify-self: center;
+  color: rgb(79, 78, 78);
+}
+.item__ico i {
+  font-size: 2vw;
+}
+.item__created {
+  color: rgb(79, 78, 78);
+}
+.item__category {
+  color: rgb(79, 78, 78);
+}
+.item__content {
+  color: rgb(79, 78, 78);
+  word-wrap: break-word;
+}
+.item__content:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.item__dates {
+  color: rgb(79, 78, 78);
+}
+.item__edit {
+  color: rgb(79, 78, 78);
+  justify-self: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+}
+.item__edit i {
+  font-size: 1.8vw;
+}
+
+.item__edit i:hover {
+  color: orange;
+}
+
+.item__active {
+  color: rgb(79, 78, 78);
+  justify-self: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+}
+.item__delete {
+  color: rgb(79, 78, 78);
+  justify-self: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+}
+.item__delete i {
+  font-size: 1.8vw;
+}
+.item__delete:hover i {
+  color: red;
+}
+.item__active i {
+  font-size: 1.8vw;
+}
+.item__active i:hover {
+  color: blue;
+}
+.emply {
+	color: rgb(79, 78, 78);
+	align-self: center;
+  }
+  

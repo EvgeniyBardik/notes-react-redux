@@ -1,5 +1,5 @@
-import { toggleActiveNote, noteRemove } from "../redux/actions";
-import { useTypedSelector } from "../hooks/useTypeSelector";
+import { toggleActiveNote, noteRemove } from "../../redux/actions";
+import { useTypedSelector } from "../../hooks/useTypeSelector";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import React from "react";

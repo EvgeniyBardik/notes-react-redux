@@ -1,5 +1,6 @@
-import { ShowArchived, ShowActive } from '../redux/actions';
-import { useTypedSelector } from '../hooks/useTypeSelector';
+import './NotesStatistics.css'
+import { ShowArchived, ShowActive } from '../../redux/actions';
+import { useTypedSelector } from '../../hooks/useTypeSelector';
 import { useDispatch } from 'react-redux';
 const NotesStatisticsHeader: React.FC = () => {
     const dispatch = useDispatch()

@@ -1,8 +1,9 @@
+import './NoteForms.css'
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useTypedSelector } from "../hooks/useTypeSelector";
-import { noteCreate, ShowActive } from "../redux/actions";
+import { useTypedSelector } from "../../hooks/useTypeSelector";
+import { noteCreate, ShowActive } from "../../redux/actions";
 import uniqid from "uniqid";
 
 interface noteIn {
@@ -13,7 +14,7 @@ interface noteIn {
   content: string;
   active: boolean;
 }
-const NoteForm: React.FC = () => {
+const NoteFormCreate: React.FC = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
@@ -107,4 +108,4 @@ const NoteForm: React.FC = () => {
   );
 };
 
-export default NoteForm;
+export default NoteFormCreate;

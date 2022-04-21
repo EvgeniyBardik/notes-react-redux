@@ -1,8 +1,9 @@
+import './NoteForms.css'
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useTypedSelector } from "../hooks/useTypeSelector";
-import { ShowActive, noteUpdate } from "../redux/actions";
+import { useTypedSelector } from "../../hooks/useTypeSelector";
+import { ShowActive, noteUpdate } from "../../redux/actions";
 
 interface NoteItemProps {
   note: {

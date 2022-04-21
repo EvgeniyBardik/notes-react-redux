@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useTypedSelector } from "../hooks/useTypeSelector";
-import NotesList from "./NotesList";
+import { useTypedSelector } from "../../hooks/useTypeSelector";
+import NotesList from "../NotesList/NotesList";
 import NoteFormEdit from "./NoteFormEdit";
 
 const NoteEditRouter: React.FC = () => {
