@@ -1,3 +1,4 @@
+import "./NotesList.css";
 import React from "react";
 import { useTypedSelector } from "../../hooks/useTypeSelector";
 import Note from "./Note";
@@ -12,11 +13,8 @@ const NotesList: React.FC = () => {
       {notesFiltered.map((note) => (
         <Note note={note} key={note.id} />
       ))}
-      <div className="flex justify-end">
-        <Link
-          className=" bg-indigo-500  text-white hover:bg-indigo-400 focus:ring-indigo-500 focus:ring-opacity-50 active:bg-indigo-600 inline-block px-5 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 uppercase tracking-wider font-semibold text-sm sm:text-base shadow-lg transform transition hover:-translate-y-0.5"
-          to={"/add"}
-        >
+      <div className="flex justify-center md:justify-end">
+        <Link className="button-link-add" to={"/add"}>
           <button>Create Note</button>
         </Link>
       </div>

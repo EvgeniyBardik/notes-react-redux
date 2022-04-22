@@ -1,0 +1,6 @@
+@tailwind components;
+@layer components {
+  .button-link-add {
+    @apply bg-indigo-500 text-white hover:bg-indigo-400 focus:ring-indigo-500 focus:ring-opacity-50 active:bg-indigo-600 inline-block px-5 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 uppercase tracking-wider font-semibold text-sm sm:text-base shadow-lg transform transition hover:-translate-y-0.5;
+  }
+}

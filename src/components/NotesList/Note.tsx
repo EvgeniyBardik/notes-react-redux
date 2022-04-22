@@ -48,7 +48,7 @@ const Note: React.FC<NoteItemProps> = ({ note }) => {
   };
   return (
     <div
-      className="grid grid-cols-12 py-4 pr-3 items-center bg-orange-100 text-sm text-gray-700 md:text-base lg:text-lg rounded-lg shadow-md my-4 gap-2"
+      className="grid grid-cols-12 py-4 pr-3 items-center bg-orange-100 text-sm text-gray-700 md:text-base lg:text-lg rounded-lg shadow-md mb-4 gap-2"
       data-id={note.id}
     >
       <i className="material-icons col-span-1 justify-self-center text-md md:text-2xl lg:text-4xl">
