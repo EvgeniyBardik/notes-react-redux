@@ -107,7 +107,6 @@ export const notesReducer = (
 ): NotesState => {
   switch (action.type) {
     case CREATE_NOTE:
-      console.log(action.payload);
       return { ...state, notes: [...state.notes, action.payload] };
     case UPDATE_NOTE:
       const { payload } = action;

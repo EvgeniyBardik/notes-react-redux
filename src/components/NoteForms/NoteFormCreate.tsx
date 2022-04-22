@@ -1,4 +1,4 @@
-import './NoteForms.css'
+import "./NoteForms.css";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -37,9 +37,10 @@ const NoteFormCreate: React.FC = () => {
     name: "",
   });
   const { categories } = useTypedSelector((state) => state.categories);
-  const changeHandlerName = (e: React.ChangeEvent<HTMLInputElement>) =>
-    {setError(null)
-    setNewNote({ ...newNote, name: e.target.value })};
+  const changeHandlerName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setError(null);
+    setNewNote({ ...newNote, name: e.target.value });
+  };
   const changeHandlerCategory = (e: React.ChangeEvent<HTMLSelectElement>) =>
     setNewNote({ ...newNote, category: +e.target.value });
   const changeHandlerContent = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
@@ -49,18 +50,22 @@ const NoteFormCreate: React.FC = () => {
   const changeHandlerCancel = () => {
     goHome();
   };
-  const [error, setError] = useState<null | string>(null)
+  const [error, setError] = useState<null | string>(null);
   const changeHandlerCreate = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setNewNote({ ...newNote, created: getDateCreated(), id: uniqid()});
-    
+
     const have = notes.find((note) => note.name === newNote.name);
     if (newNote.name === "") {
       setError("Enter note name");
     } else if (have) {
       setError("Enter another name");
     } else {
-      dispatch(noteCreate(newNote));
+      const NewNoteToSave = {
+        ...newNote,
+        created: getDateCreated(),
+        id: uniqid(),
+      };
+      dispatch(noteCreate(NewNoteToSave));
       dispatch(ShowActive());
       goHome();
     }
@@ -71,7 +76,7 @@ const NoteFormCreate: React.FC = () => {
         <h1 className="form-note__title">Create Note</h1>
         <div className="form-note__label1">Name:</div>
         <input className="form-note__name" onChange={changeHandlerName} />
-        <p className='form-error'>{error}</p>
+        <p className="form-error">{error}</p>
         <div className="form-note__label2">Category:</div>
         <select className="form-note__select" onChange={changeHandlerCategory}>
           {categories.map((category) => (
