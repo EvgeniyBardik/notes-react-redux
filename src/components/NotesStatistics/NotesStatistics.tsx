@@ -1,4 +1,3 @@
-import './NotesStatistics.css'
 import { useTypedSelector } from "../../hooks/useTypeSelector";
 const NotesStaistics = () => {
     const { notes } = useTypedSelector((state) => state.notes);
@@ -28,11 +27,11 @@ const NotesStaistics = () => {
     return ( 
         <>
         {categories.map((category) => (
-        <div className="item2" key={category.id}>
-            <div className="item2__ico"><i className="material-icons">{iconName(category.id)}</i></div>
-            <div className="item2__category">{category.name}</div>
-            <div className="item2__active">{countActive(category.id)}</div>
-            <div className="item2__archived">{countArchive(category.id)}</div>
+        <div className="grid grid-cols-12 py-4 items-center bg-yellow-100 text-sm text-gray-700 md:text-base lg:text-lg rounded-lg shadow-md my-4" key={category.id}>
+            <i className="col-span-1 material-icons justify-self-center text-md md:text-2xl lg:text-4xl">{iconName(category.id)}</i>
+            <div className="col-span-5 font-bold">{category.name}</div>
+            <div className="col-span-3">{countActive(category.id)}</div>
+            <div className="col-span-3">{countArchive(category.id)}</div>
         </div>
         ))}
         </>

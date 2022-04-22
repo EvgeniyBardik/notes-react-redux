@@ -47,15 +47,13 @@ const Note: React.FC<NoteItemProps> = ({ note }) => {
     return result.join(", ");
   };
   return (
-    <div className="item" data-id={note.id}>
-      <div className="item__ico">
-        <i className="material-icons">{iconName(note.category)}</i>
-      </div>
-      <div className="item__name">{note.name}</div>
-      <div className="item__created">{note.created}</div>
-      <div className="item__category">{getCategory(note.category)}</div>
+    <div className="grid grid-cols-12 py-4 pr-3 items-center bg-orange-100 text-sm text-gray-700 md:text-base lg:text-lg rounded-lg shadow-md my-4 gap-2" data-id={note.id}>
+      <i className="material-icons col-span-1 justify-self-center text-md md:text-2xl lg:text-4xl">{iconName(note.category)}</i>
+      <div className="col-span-2 font-bold break-words">{note.name}</div>
+      <div className="col-span-2">{note.created}</div>
+      <div className="col-span-2">{getCategory(note.category)}</div>
       <div
-        className="item__content"
+        className="col-span-2 hover:cursor-pointer hover:underline"
         onClick={(e) =>
           e.currentTarget.textContent === note.content
             ? (e.currentTarget.textContent = contentPreview(note.content))
@@ -64,26 +62,28 @@ const Note: React.FC<NoteItemProps> = ({ note }) => {
       >
         {contentPreview(note.content)}
       </div>
-      <div className="item__dates">{dates(note.content)}</div>
-      <Link to={`/edit/${note.id}`} className="item__edit">
-        <i className="material-icons">create</i>
+      <div className="md:col-span-1 text-sm lg:text-lg xl:col-span-2">{dates(note.content)}</div>
+      <div className=' col-start-10 col-end-13 md:col-span-2 xl:col-span-1 grid grid-cols-3 md:items-center md:justify-items-center'>
+      <Link to={`/edit/${note.id}`} className="justify-self-center">
+        <i className=" material-icons text-2xl md:text-2xl lg:text-3xl hover:text-amber-500 duration-500 transform transition hover:-translate-y-0.5">create</i>
       </Link>
-      <button className="item__active">
+      <button className="">
         <i
-          className="material-icons"
+          className="material-icons text-2xl md:text-2xl lg:text-3xl hover:text-blue-500 duration-500 transform transition hover:-translate-y-0.5"
           onClick={() => dispatch(toggleActiveNote(note.id))}
         >
           archive
         </i>
       </button>
-      <button className="item__delete">
+      <button className="">
         <i
-          className="material-icons"
+          className="material-icons text-2xl md:text-2xl lg:text-3xl hover:text-red-500 duration-500 transform transition hover:-translate-y-0.5"
           onClick={() => dispatch(noteRemove(note.id))}
         >
           delete
         </i>
       </button>
+      </div>
     </div>
   );
 };

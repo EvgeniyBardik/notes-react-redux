@@ -1,4 +1,3 @@
-import './css/style.css'
 import Main from './components/Main/Main';
 import { Routes, Route } from 'react-router-dom';
 
