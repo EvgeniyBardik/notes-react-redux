@@ -14,6 +14,10 @@ interface noteIn {
   content: string;
   active: boolean;
 }
+interface ICategory {
+  id: number;
+  name: string;
+}
 const NoteFormCreate: React.FC = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -54,7 +58,7 @@ const NoteFormCreate: React.FC = () => {
   const changeHandlerCreate = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const have = notes.find((note) => note.name === newNote.name);
+    const have = notes.find((note: noteIn) => note.name === newNote.name);
     if (newNote.name === "") {
       setError("Enter note name");
     } else if (have) {
@@ -114,7 +118,7 @@ const NoteFormCreate: React.FC = () => {
                 className="select-create-edit"
                 onChange={changeHandlerCategory}
               >
-                {categories.map((category) => (
+                {categories.map((category: ICategory) => (
                   <option key={category.id} value={category.id}>
                     {category.name}
                   </option>

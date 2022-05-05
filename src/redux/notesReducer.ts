@@ -135,7 +135,6 @@ export const notesReducer = (
       })();
     case TOGGLE_ACTIVE_NOTE:
       return (() => {
-        const { id } = action;
         //               const {notes}  = state
         const updatedNotes = state.notes.map((note) =>
           note.id === action.id ? { ...note, active: !note.active } : note

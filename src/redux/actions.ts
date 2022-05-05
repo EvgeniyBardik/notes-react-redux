@@ -67,8 +67,8 @@ export function categoriesRemove(id: number) {
 }
 
 export function ShowActive() {
-  return function (dispatch: any) {
-    dispatch({ type: SHOW_ACTIVE });
+  return {
+    type: SHOW_ACTIVE,
   };
 }
 
